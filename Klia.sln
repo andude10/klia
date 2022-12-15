@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EC3EB80E-9AE0-4BE5-8135-54B74C8F0AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klia.WebUI", "src\Klia.WebUI\Klia.WebUI.csproj", "{6488C184-5FEA-4587-8A43-65A906176F75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klia.Domain", "src\Klia.Domain\Klia.Domain.csproj", "{D230AD5C-9874-4AF8-979A-5FE936195503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klia.Application", "src\Klia.Application\Klia.Application.csproj", "{BE17EA6D-4E2F-4FDE-B4E3-511D85FC70F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klia.Infrastructure", "src\Klia.Infrastructure\Klia.Infrastructure.csproj", "{2DB66A4A-C746-408C-A904-11E02431E848}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6488C184-5FEA-4587-8A43-65A906176F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6488C184-5FEA-4587-8A43-65A906176F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6488C184-5FEA-4587-8A43-65A906176F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6488C184-5FEA-4587-8A43-65A906176F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D230AD5C-9874-4AF8-979A-5FE936195503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D230AD5C-9874-4AF8-979A-5FE936195503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D230AD5C-9874-4AF8-979A-5FE936195503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D230AD5C-9874-4AF8-979A-5FE936195503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE17EA6D-4E2F-4FDE-B4E3-511D85FC70F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE17EA6D-4E2F-4FDE-B4E3-511D85FC70F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE17EA6D-4E2F-4FDE-B4E3-511D85FC70F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE17EA6D-4E2F-4FDE-B4E3-511D85FC70F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB66A4A-C746-408C-A904-11E02431E848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB66A4A-C746-408C-A904-11E02431E848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB66A4A-C746-408C-A904-11E02431E848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB66A4A-C746-408C-A904-11E02431E848}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6488C184-5FEA-4587-8A43-65A906176F75} = {EC3EB80E-9AE0-4BE5-8135-54B74C8F0AFA}
+		{D230AD5C-9874-4AF8-979A-5FE936195503} = {EC3EB80E-9AE0-4BE5-8135-54B74C8F0AFA}
+		{BE17EA6D-4E2F-4FDE-B4E3-511D85FC70F5} = {EC3EB80E-9AE0-4BE5-8135-54B74C8F0AFA}
+		{2DB66A4A-C746-408C-A904-11E02431E848} = {EC3EB80E-9AE0-4BE5-8135-54B74C8F0AFA}
+	EndGlobalSection
+EndGlobal

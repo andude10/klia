@@ -1,0 +1,63 @@
+# Definitions
+
+Database Structure {
+      Indexes Table {
+            shape:sql_table
+            Word:string  {constraint: primary_key}
+            Pages:int set
+      }
+
+      Pages Table {
+            shape:sql_table
+            Id: int {constraint: primary_key}
+            Url: url
+            Rank: int
+      }
+
+      Indexes Table.Pages -> Pages Table.Id
+}
+
+db: {
+      label:Database PostgreSQL
+      shape:stored_data
+}
+
+User {
+      shape: person
+}
+
+Search Core {
+      Query Interpretation {
+            Security Check
+            Keywords Recognition
+      }
+
+      Indexing {
+            Shard 1 {
+                  Indexing Process
+            }
+            Shard 2 {
+                  Indexing Process
+            }
+
+            Shard 1 -> Result Merge
+            Shard 2 -> Result Merge
+      }
+
+      Query Interpretation -> Indexing
+}
+
+
+# Diagram
+User -> Search Core.Query Interpretation
+
+Search Core.Indexing.Shard 1.Indexing Process -> db: site set request
+Search Core.Indexing.Shard 2.Indexing Process -> db: site set request
+Search Core.Indexing.Result Merge -> User
+
+Crawler {
+      Parse For Words -> Rank Page
+}
+
+Crawler.Rank Page -> db:Save URL
+Crawler.Rank Page -> db:Add Words
