@@ -1,0 +1,38 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
+
+RUN apt-get update && apt-get install curl
+
+# Setup Angular (frontend)
+RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt install nodejs
+RUN npm install -g @angular/cli@14.0.3
+
+# Generate developer certificate
+RUN dotnet dev-certs https
+RUN dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
+RUN update-ca-certificates
+
+FROM base AS build
+WORKDIR /src
+
+COPY src/Klia.Domain/*.csproj Klia.Domain/
+COPY src/Klia.Infrastructure/*.csproj Klia.Infrastructure/
+COPY src/Klia.Application/*.csproj Klia.Application/
+COPY src/Klia.WebUI/*.csproj Klia.WebUI/
+RUN dotnet restore Klia.WebUI/Klia.WebUI.csproj
+
+COPY src/Klia.Domain/ Klia.Domain/
+COPY src/Klia.Infrastructure/ Klia.Infrastructure/
+COPY src/Klia.Application/ Klia.Application/
+COPY src/Klia.WebUI/ Klia.WebUI/
+WORKDIR /src/Klia.WebUI
+RUN dotnet build -c Debug -o /app
+
+FROM build AS publish
+RUN dotnet publish -c Debug -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "Klia.WebUI.dll", "--server.urls", "http://+:8080;https://+:8081"]

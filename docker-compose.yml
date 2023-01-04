@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: DockerfileDebug
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "44480:44480"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_URLS=https://0.0.0.0:8081;http://0.0.0.0:8080
+      - ASPNETCORE_ENVIRONMENT=Production
+  
+  db:
+    image: postgres
+    ports:
+      - "1433:1433"
+    
+    environment:
+      POSTGRES_PASSWORD: "${BD_PASSWORD}"
