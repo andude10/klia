@@ -72,6 +72,7 @@
               "browserTarget": "Klia.WebUI:build:production"
             },
             "development": {
+              "host": "0.0.0.0",
               "browserTarget": "Klia.WebUI:build:development",
               "proxyConfig": "proxy.conf.js"
             }
@@ -129,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "Klia.WebUI"
+  "defaultProject": "Klia.WebUI",
+  "cli": {
+    "analytics": false
+  }
 }
